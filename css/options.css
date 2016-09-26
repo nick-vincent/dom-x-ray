@@ -51,14 +51,16 @@ legend label {
   color: inherit;
 }
 code {
-  background-color: #eff7fb;
-  border: 1px solid #88b0fc;
-  padding: .1em .25em;
-  color: #0088FF;
+  font-size: 90%;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  padding: 0 .25em;
+  color: #FF69B4;
 }
 input[type=text] {
   display: block;
-  font-family: monospace;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 90%;
+  font-weight: normal;
   width: 100%;
   margin-top: .25em;
   padding: .75em;

@@ -19,23 +19,23 @@ var DEFAULTS = {
   'root-selector'       : 'html',
 
   'include-background'  : true,
-  'background-color'    : '#E0F0FF',
-  'background-opacity'  : .15,
+  'background-color'    : '#70BBFF',
+  'background-opacity'  : 0.03,
 
   'include-outline'     : true,
-  'outline-color'       : '#0088FF',
-  'outline-opacity'     : .15,
+  'outline-color'       : '#FF69B4',
+  'outline-opacity'     : 0.25,
 
   'include-text'        : true,
-  'text-color'          : '#0088FF',
-  'text-opacity'        : .80,
+  'text-color'          : '#FF69B4',
+  'text-opacity'        : 1.00,
 
   'include-border'      : true,
-  'border-color'        : '#0088FF',
-  'border-opacity'      : .80,
+  'border-color'        : '#FF69B4',
+  'border-opacity'      : 1.00,
 
   'include-images'      : true,
-  'image-opacity'       : .50,
+  'image-opacity'       : 0.80,
 
   'include-root'        : true,
   'include-descendants' : true,

@@ -1,3 +1,6 @@
+// Set browser action icon off immediately
+chrome.browserAction.setIcon( { path: ICON_OFF } );
+
 // Current options
 var options = {};
 
