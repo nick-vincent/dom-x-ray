@@ -1,0 +1,243 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  transition: all .25s ease;
+}
+
+body {
+  position: relative;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  min-width: 800px;
+}
+
+h1 {
+  letter-spacing: -1px;
+}
+h1, h2 {
+  font-weight: 400;
+}
+
+
+/* Form */
+
+#options-form {
+  width: 360px;
+  padding: 1em 2em 2em;
+  z-index: 1;
+}
+fieldset {
+  clear: both;
+  margin: 0 0 2em;
+  padding: 1em;
+  border: 1px solid #d8d8d8;
+  background-color: #f8f8f8;
+  border-radius: .25em;
+}
+[class^=form-group] {
+  margin: 0 0 1em;
+}
+label {
+  color: #444;
+  cursor: pointer;
+  margin-right: .5em;
+}
+legend {
+  font-weight: 400;
+}
+legend label {
+  color: inherit;
+}
+code {
+  background-color: #eff7fb;
+  border: 1px solid #88b0fc;
+  padding: .1em .25em;
+  color: #0088FF;
+}
+input[type=text] {
+  display: block;
+  font-family: monospace;
+  width: 100%;
+  margin-top: .25em;
+  padding: .75em;
+  background-color: #fff;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: .4em;
+}
+input[type=checkbox] {
+  cursor: pointer;
+  margin-right: .25em;
+}
+input[type=color] {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+/* Color selectors */
+.color-select {
+  height: 150px;
+  overflow: hidden;
+  padding-top: .5em;
+  padding-bottom: 0;
+}
+#image {
+  height: 90px;
+}
+.color-select:not(.enabled) {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0;
+  height: 1.5em !important;
+  padding: 0;
+  margin: 0 0 1.5em;
+}
+.color-select .form-group {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  transition: all .25s ease .25s;
+}
+.color-select:not(.enabled) .form-group {
+  opacity: 0;
+  transition: none;
+}
+.color-select .form-group label,
+.color-select .form-group input {
+  display: block;
+  float: left;
+  height: 60px;
+  margin: 0;
+}
+.color-select .form-group label {
+  font-size: 12px;
+  padding: 10px 10px 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 70px;
+}
+.color-select .form-group input {
+  cursor: pointer;
+  width: calc(100% - 70px);
+}
+
+/* Buttons */
+button {
+  clear: both;
+  width: 100%;
+  display: block;
+  font-weight: 400;
+  padding: 1em;
+  color: #f8f8f8;
+  background: #333;
+  outline: 0;
+  border: 0;
+  border-radius: .4em;
+}
+button + button {
+  margin-top: 1em;
+}
+button:hover {
+  color: #ffffff;
+  background: #444;
+}
+button:active {
+  color: #ffffff;
+  background: #555;
+}
+
+/* Status */
+#status {
+  margin: 0;
+  padding: 2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+
+  color: orange;
+  background-color: #ffffcc;
+  border-top: 1px solid rgba( 255, 165, 0, .25 );
+}
+#status.success {
+  color: green;
+  background-color: #ccffcc;
+  border-top: 1px solid rgba( 0, 128, 0, .25 );
+}
+#status.error {
+  color: red;
+  background-color: #ffcccc;
+  border-top: 1px solid rgba( 255, 0, 0, .25 );
+}
+#status.hidden {
+  -webkit-transform: translateY( 100% );
+}
+
+/* Demo */
+#demo, #demo *, #demo *:before, #demo *:after {
+  outline: 1px solid transparent;
+}
+#demo {
+  position: fixed;
+  left: 360px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 1em;
+  overflow: hidden;
+  text-align: center;
+  outline: 1px solid transparent;
+}
+#demo nav {
+  width: 33.3333%;
+  float: left;
+  font-size: 14px;
+  padding: 1em;
+}
+#demo article {
+  width: 66.6666%;
+  float: right;
+  padding: 1em;
+}
+#demo h2 {
+  border-bottom: 1px solid black;
+  margin-top: 0;
+}
+#demo p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+#demo ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+#demo li {
+  position: relative;
+  border-bottom: 1px solid black;
+  line-height: 2;
+}
+#demo li:after {
+  content: '\203A';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+}
+#demo img {
+  display: block;
+  border-radius: 2em;
+  width: 100%;
+}
