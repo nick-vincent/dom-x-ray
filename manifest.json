@@ -1,12 +1,12 @@
 {
-  "manifest_version"  : 2,
-  "version"           : "0.3.1",
-  "name"              : "DOM X-Ray",
-  "description"       : "See through the DOM to visually debug CSS positioning.",
+  "manifest_version" : 2,
+  "version" : "0.3.2",
+  "name" : "DOM X-Ray",
+  "description" : "See through the DOM to visually debug CSS positioning.",
 
   "icons" : {
-    "16"  : "img/icon-16.png",
-    "48"  : "img/icon-48.png",
+    "16" : "img/icon-16.png",
+    "48" : "img/icon-48.png",
     "128" : "img/icon-128.png"
   },
 
@@ -16,7 +16,7 @@
   ],
 
   "browser_action" : {
-    "default_icon"  : "img/icon-off.png",
+    "default_icon" : "img/icon-off.png",
     "default_title" : "DOM X-Ray"
   },
 
@@ -35,9 +35,9 @@
         "js/inject.js",
         "js/tab.js"
       ],
-      // "all_frames" : true,
+      "all_frames" : true,
       "matches" : ["<all_urls>"],
-      "run_at"  : "document_start"
+      "run_at" : "document_start"
     }
   ],
 
