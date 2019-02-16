@@ -1,162 +1,279 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DOM X-Ray Options</title>
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/options.css">
-</head>
 
-<body>
-  <p id="status" class="hidden"></p>
+  <head>
+    <title>DOM X-Ray Options</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://fonts.googleapis.com/css?family=Ubuntu:300,400"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/normalize.css"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/options.css"
+    >
+  </head>
 
-  <form id="options-form">
-    <h1>DOM X-Ray Options</h1>
+  <body>
+    <p
+      id="status"
+      class="hidden"
+    ></p>
 
-    <fieldset id="background" class="color-select">
-      <legend>
-        <input type="checkbox" id="include-background" />
-        <label for="include-background">Include Background Color</label>
-      </legend>
-      <div class="form-group">
-        <label for="background-color">Color: <span class="value"></span></label>
-        <input type="color" id="background-color" />
-      </div>
-      <div class="form-group">
-        <label for="background-opacity">Opacity: <span class="value"></span></label>
-        <input type="range" id="background-opacity" min="0" max="1" step=".01" />
-      </div>
-    </fieldset>
+    <form id="options-form">
+      <h1>DOM X-Ray Options</h1>
 
-    <fieldset id="outline" class="color-select">
-      <legend>
-        <input type="checkbox" id="include-outline" />
-        <label for="include-outline">Include Outline Color</label>
-      </legend>
-      <div class="form-group">
-        <label for="outline-color">Color: <span class="value"></span></label>
-        <input type="color" id="outline-color" />
-      </div>
-      <div class="form-group">
-        <label for="outline-opacity">Opacity: <span class="value"></span></label>
-        <input type="range" id="outline-opacity" min="0" max="1" step=".01" />
-      </div>
-    </fieldset>
+      <fieldset
+        id="background"
+        class="color-select"
+      >
+        <legend>
+          <input
+            type="checkbox"
+            id="include-background"
+          />
+          <label for="include-background">Include Background Color</label>
+        </legend>
+        <div class="form-group">
+          <label for="background-color">Color: <span class="value"></span></label>
+          <input
+            type="color"
+            id="background-color"
+          />
+        </div>
+        <div class="form-group">
+          <label for="background-opacity">Opacity: <span class="value"></span></label>
+          <input
+            type="range"
+            id="background-opacity"
+            min="0"
+            max="1"
+            step=".01"
+          />
+        </div>
+      </fieldset>
 
-    <fieldset id="text" class="color-select">
-      <legend>
-        <input type="checkbox" id="include-text" />
-        <label for="include-text">Include Text Color</label>
-      </legend>
-      <div class="form-group">
-        <label for="text-color">Color: <span class="value"></span></label>
-        <input type="color" id="text-color" />
-      </div>
-      <div class="form-group">
-        <label for="text-opacity">Opacity: <span class="value"></span></label>
-        <input type="range" id="text-opacity" min="0" max="1" step=".01" />
-      </div>
-    </fieldset>
+      <fieldset
+        id="outline"
+        class="color-select"
+      >
+        <legend>
+          <input
+            type="checkbox"
+            id="include-outline"
+          />
+          <label for="include-outline">Include Outline Color</label>
+        </legend>
+        <div class="form-group">
+          <label for="outline-color">Color: <span class="value"></span></label>
+          <input
+            type="color"
+            id="outline-color"
+          />
+        </div>
+        <div class="form-group">
+          <label for="outline-opacity">Opacity: <span class="value"></span></label>
+          <input
+            type="range"
+            id="outline-opacity"
+            min="0"
+            max="1"
+            step=".01"
+          />
+        </div>
+      </fieldset>
 
-    <fieldset id="border" class="color-select">
-      <legend>
-        <input type="checkbox" id="include-border" />
-        <label for="include-border">Include Border Color</label>
-      </legend>
-      <div class="form-group">
-        <label for="border-color">Color: <span class="value"></span></label>
-        <input type="color" id="border-color" />
-      </div>
-      <div class="form-group">
-        <label for="border-opacity">Opacity: <span class="value"></span></label>
-        <input type="range" id="border-opacity" min="0" max="1" step=".01" />
-      </div>
-    </fieldset>
+      <fieldset
+        id="text"
+        class="color-select"
+      >
+        <legend>
+          <input
+            type="checkbox"
+            id="include-text"
+          />
+          <label for="include-text">Include Text Color</label>
+        </legend>
+        <div class="form-group">
+          <label for="text-color">Color: <span class="value"></span></label>
+          <input
+            type="color"
+            id="text-color"
+          />
+        </div>
+        <div class="form-group">
+          <label for="text-opacity">Opacity: <span class="value"></span></label>
+          <input
+            type="range"
+            id="text-opacity"
+            min="0"
+            max="1"
+            step=".01"
+          />
+        </div>
+      </fieldset>
 
-    <fieldset id="image" class="color-select">
-      <legend>
-        <input type="checkbox" id="include-images" />
-        <label for="include-images">Include Images</label>
-      </legend>
-      <div class="form-group">
-        <label for="image-opacity">Opacity: <span class="value"></span></label>
-        <input type="range" id="image-opacity" min="0" max="1" step=".01" />
-      </div>
-    </fieldset>
+      <fieldset
+        id="border"
+        class="color-select"
+      >
+        <legend>
+          <input
+            type="checkbox"
+            id="include-border"
+          />
+          <label for="include-border">Include Border Color</label>
+        </legend>
+        <div class="form-group">
+          <label for="border-color">Color: <span class="value"></span></label>
+          <input
+            type="color"
+            id="border-color"
+          />
+        </div>
+        <div class="form-group">
+          <label for="border-opacity">Opacity: <span class="value"></span></label>
+          <input
+            type="range"
+            id="border-opacity"
+            min="0"
+            max="1"
+            step=".01"
+          />
+        </div>
+      </fieldset>
 
-    <fieldset id="misc">
-      <legend>Other Settings</legend>
+      <fieldset
+        id="image"
+        class="color-select"
+      >
+        <legend>
+          <input
+            type="checkbox"
+            id="include-images"
+          />
+          <label for="include-images">Include Images</label>
+        </legend>
+        <div class="form-group">
+          <label for="image-opacity">Opacity: <span class="value"></span></label>
+          <input
+            type="range"
+            id="image-opacity"
+            min="0"
+            max="1"
+            step=".01"
+          />
+        </div>
+      </fieldset>
 
-      <div class="form-group">
-        <label for="root-selector">CSS selector for <code>&lt;root&gt;</code> element: </label>
-        <input type="text" id="root-selector" required spellcheck="false"
-          pattern="[\#\.]?-?[_a-zA-Z]+[_a-zA-Z0-9-]*"
-          title="Must be a valid CSS selector, e.g. elem, .elem_class, or #elem_id" />
-      </div>
+      <fieldset id="misc">
+        <legend>Other Settings</legend>
 
-      <div class="form-group">
-        <label for="style-tag-id">ID of injected <code>&lt;style&gt;</code> element: </label>
-        <input type="text" id="style-tag-id" required spellcheck="false"
-          pattern="[\#]?-?[_a-zA-Z]+[_a-zA-Z0-9-]*"
-          title="Must be a valid CSS element ID, e.g. elem_id or #elem_id" />
-      </div>
+        <div class="form-group">
+          <label for="root-selector">CSS selector for <code>&lt;root&gt;</code> element: </label>
+          <input
+            type="text"
+            id="root-selector"
+            required
+            spellcheck="false"
+            pattern="[\#\.]?-?[_a-zA-Z]+[_a-zA-Z0-9-]*"
+            title="Must be a valid CSS selector, e.g. elem, .elem_class, or #elem_id"
+          />
+        </div>
 
-      <div class="form-group">
-        <input type="checkbox" id="include-root" />
-        <label for="include-root">Apply styles to <code>&lt;root&gt;</code> element</label>
-      </div>
+        <div class="form-group">
+          <label for="style-tag-id">ID of injected <code>&lt;style&gt;</code> element: </label>
+          <input
+            type="text"
+            id="style-tag-id"
+            required
+            spellcheck="false"
+            pattern="[\#]?-?[_a-zA-Z]+[_a-zA-Z0-9-]*"
+            title="Must be a valid CSS element ID, e.g. elem_id or #elem_id"
+          />
+        </div>
 
-      <div class="form-group">
-        <input type="checkbox" id="include-descendants" />
-        <label for="include-descendants">Apply styles to <code>&lt;root&gt; *</code> descendants</label>
-      </div>
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="include-root"
+          />
+          <label for="include-root">Apply styles to <code>&lt;root&gt;</code> element</label>
+        </div>
 
-      <div class="form-group">
-        <input type="checkbox" id="include-pseudo" />
-        <label for="include-pseudo">Apply styles to <code>:before</code> and <code>:after</code></label>
-      </div>
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="include-descendants"
+          />
+          <label for="include-descendants">Apply styles to <code>&lt;root&gt; *</code> descendants</label>
+        </div>
 
-      <div class="form-group">
-        <input type="checkbox" id="use-important" />
-        <label for="use-important">Apply styles with <code>!important</code></label>
-      </div>
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="include-pseudo"
+          />
+          <label for="include-pseudo">Apply styles to <code>:before</code> and <code>:after</code></label>
+        </div>
 
-    </fieldset>
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="use-important"
+          />
+          <label for="use-important">Apply styles with <code>!important</code></label>
+        </div>
 
-    <button type="submit" id="save">Save these settings</button>
-    <button type="reset" id="reset">Reset to defaults</button>
-  </form>
+      </fieldset>
 
-  <div id="demo">
-    <header>
-      <h2>DOM X-Ray Demo</h2>
-    </header>
-    <nav>
-      <ul>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-        <li>Demo</li>
-      </ul>
-    </nav>
-    <article>
-      <img src="http://placekitten.com/460/320" />
-      <p>
-        Et quidem, inquit, vehementer errat; Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit?
-        <a href="#">Beatus sibi videtur esse moriens.</a> Sed fortuna fortis;
-        Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.
-        <a href="#">Id enim natura desiderat.</a>
-      </p>
-    </article>
-  </div>
+      <button
+        type="submit"
+        id="save"
+      >Save these settings</button>
+      <button
+        type="reset"
+        id="reset"
+      >Reset to defaults</button>
+    </form>
 
-  <script src="js/config.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/inject.js"></script>
-  <script src="js/options.js"></script>
-</body>
+    <div id="demo">
+      <header>
+        <h2>DOM X-Ray Demo</h2>
+      </header>
+      <nav>
+        <ul>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+        </ul>
+      </nav>
+      <article>
+        <img src="http://placekitten.com/460/320" />
+        <p>
+          Et quidem, inquit, vehementer errat; Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit?
+          <a href="#">Beatus sibi videtur esse moriens.</a> Sed fortuna fortis;
+          Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.
+          <a href="#">Id enim natura desiderat.</a>
+        </p>
+      </article>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/inject.js"></script>
+    <script src="js/options.js"></script>
+  </body>
+
 </html>

@@ -1,11 +1,13 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 body {
   position: relative;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.5;
@@ -16,10 +18,10 @@ body {
 h1 {
   letter-spacing: -1px;
 }
-h1, h2 {
+h1,
+h2 {
   font-weight: 400;
 }
-
 
 /* Form */
 
@@ -34,15 +36,15 @@ fieldset {
   padding: 1em;
   border: 1px solid #d8d8d8;
   background-color: #f8f8f8;
-  border-radius: .25em;
+  border-radius: 0.25em;
 }
-[class^=form-group] {
+[class^="form-group"] {
   margin: 0 0 1em;
 }
 label {
   color: #444;
   cursor: pointer;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 legend {
   font-weight: 400;
@@ -53,27 +55,27 @@ legend label {
 code {
   font-size: 90%;
   font-family: Menlo, Monaco, Consolas, monospace;
-  padding: 0 .25em;
-  color: #FF69B4;
+  padding: 0 0.25em;
+  color: #ff69b4;
 }
-input[type=text] {
+input[type="text"] {
   display: block;
   font-family: Menlo, Monaco, Consolas, monospace;
   font-size: 90%;
   font-weight: normal;
   width: 100%;
-  margin-top: .25em;
-  padding: .75em;
+  margin-top: 0.25em;
+  padding: 0.75em;
   background-color: #fff;
   outline: 0;
   border: 1px solid #ccc;
-  border-radius: .4em;
+  border-radius: 0.4em;
 }
-input[type=checkbox] {
+input[type="checkbox"] {
   cursor: pointer;
-  margin-right: .25em;
+  margin-right: 0.25em;
 }
-input[type=color] {
+input[type="color"] {
   border: 0;
   margin: 0;
   outline: 0;
@@ -85,7 +87,7 @@ input[type=color] {
 .color-select {
   height: 150px;
   overflow: hidden;
-  padding-top: .5em;
+  padding-top: 0.5em;
   padding-bottom: 0;
 }
 #image {
@@ -105,7 +107,7 @@ input[type=color] {
   padding: 0;
   margin: 0;
   overflow: auto;
-  transition: all .25s ease .25s;
+  transition: all 0.25s ease 0.25s;
 }
 .color-select:not(.enabled) .form-group {
   opacity: 0;
@@ -141,7 +143,7 @@ button {
   background: #333;
   outline: 0;
   border: 0;
-  border-radius: .4em;
+  border-radius: 0.4em;
 }
 button + button {
   margin-top: 1em;
@@ -168,24 +170,27 @@ button:active {
 
   color: orange;
   background-color: #ffffcc;
-  border-top: 1px solid rgba( 255, 165, 0, .25 );
+  border-top: 1px solid rgba(255, 165, 0, 0.25);
 }
 #status.success {
   color: green;
   background-color: #ccffcc;
-  border-top: 1px solid rgba( 0, 128, 0, .25 );
+  border-top: 1px solid rgba(0, 128, 0, 0.25);
 }
 #status.error {
   color: red;
   background-color: #ffcccc;
-  border-top: 1px solid rgba( 255, 0, 0, .25 );
+  border-top: 1px solid rgba(255, 0, 0, 0.25);
 }
 #status.hidden {
-  -webkit-transform: translateY( 100% );
+  -webkit-transform: translateY(100%);
 }
 
 /* Demo */
-#demo, #demo *, #demo *:before, #demo *:after {
+#demo,
+#demo *,
+#demo *:before,
+#demo *:after {
   outline: 1px solid transparent;
 }
 #demo {
@@ -223,7 +228,7 @@ button:active {
   display: block;
   list-style: none;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 #demo li {
   position: relative;
@@ -231,7 +236,7 @@ button:active {
   line-height: 2;
 }
 #demo li:after {
-  content: '\203A';
+  content: "\203A";
   position: absolute;
   top: 0;
   right: 0;
