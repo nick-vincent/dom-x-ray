@@ -11,7 +11,7 @@ var xRayTabs = [];
 var xRayCss = "";
 
 // Load the options & init
-loadOptions(function(loadedOptions) {
+loadOptions(function (loadedOptions) {
   // If first time loading, save the defaults to storage
   if (loadedOptions["first-init"]) {
     console.log("First time! Saving defaults to storage...");
@@ -130,7 +130,7 @@ function updateTabState(tabId, event) {
   chrome.tabs.sendMessage(tabId, {
     event: event,
     xRayId: options["style-tag-id"],
-    xRayCss: xRayCss
+    xRayCss: xRayCss,
   });
 }
 
@@ -140,6 +140,6 @@ function updateStyleId(tabId, oldId, newId) {
   chrome.tabs.sendMessage(tabId, {
     event: UPDATE_ID,
     oldId: oldId,
-    newId: newId
+    newId: newId,
   });
 }

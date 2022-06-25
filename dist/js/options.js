@@ -64,7 +64,7 @@ function addEventHandlers() {
     if (input.type === "text") {
       input.onfocus = onInputFocus;
       input.onblur = onInputBlur;
-      input.onmouseup = function(e) {
+      input.onmouseup = function (e) {
         e.preventDefault();
       };
     }
@@ -90,7 +90,7 @@ var focused = null;
 function onInputFocus() {
   if (focused === this) return;
   focused = this;
-  setTimeout(function() {
+  setTimeout(function () {
     focused.select();
   }, 50);
 }
@@ -104,10 +104,10 @@ function onSave(e) {
   e.preventDefault();
   saveOptions(
     options,
-    function() {
+    function () {
       updateStatus(MSG_SUCCESS, "success");
     },
-    function() {
+    function () {
       updateStatus(MSG_ERROR, "error");
     }
   );
@@ -122,10 +122,10 @@ function onReset(e) {
 
   saveOptions(
     options,
-    function() {
+    function () {
       updateStatus(MSG_RESET, "success");
     },
-    function() {
+    function () {
       updateStatus(MSG_ERROR, "error");
     }
   );
@@ -137,7 +137,7 @@ function updateStatus(msg, state) {
   statusMsg.classList.remove("hidden");
   if (state) statusMsg.classList.add(state);
   clearTimeout(statusTimeout);
-  statusTimeout = setTimeout(function() {
+  statusTimeout = setTimeout(function () {
     statusMsg.classList.add("hidden");
   }, MSG_TIMOUT);
 }

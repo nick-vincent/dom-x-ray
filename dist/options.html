@@ -1,54 +1,37 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>DOM X-Ray Options</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="http://fonts.googleapis.com/css?family=Ubuntu:300,400"
-    >
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="css/normalize.css"
-    >
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="css/options.css"
-    >
+    />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/options.css" />
   </head>
 
   <body>
-    <p
-      id="status"
-      class="hidden"
-    ></p>
+    <p id="status" class="hidden"></p>
 
     <form id="options-form">
       <h1>DOM X-Ray Options</h1>
 
-      <fieldset
-        id="background"
-        class="color-select"
-      >
+      <fieldset id="background" class="color-select">
         <legend>
-          <input
-            type="checkbox"
-            id="include-background"
-          />
+          <input type="checkbox" id="include-background" />
           <label for="include-background">Include Background Color</label>
         </legend>
         <div class="form-group">
-          <label for="background-color">Color: <span class="value"></span></label>
-          <input
-            type="color"
-            id="background-color"
-          />
+          <label for="background-color"
+            >Color: <span class="value"></span
+          ></label>
+          <input type="color" id="background-color" />
         </div>
         <div class="form-group">
-          <label for="background-opacity">Opacity: <span class="value"></span></label>
+          <label for="background-opacity"
+            >Opacity: <span class="value"></span
+          ></label>
           <input
             type="range"
             id="background-opacity"
@@ -59,116 +42,65 @@
         </div>
       </fieldset>
 
-      <fieldset
-        id="outline"
-        class="color-select"
-      >
+      <fieldset id="outline" class="color-select">
         <legend>
-          <input
-            type="checkbox"
-            id="include-outline"
-          />
+          <input type="checkbox" id="include-outline" />
           <label for="include-outline">Include Outline Color</label>
         </legend>
         <div class="form-group">
           <label for="outline-color">Color: <span class="value"></span></label>
-          <input
-            type="color"
-            id="outline-color"
-          />
+          <input type="color" id="outline-color" />
         </div>
         <div class="form-group">
-          <label for="outline-opacity">Opacity: <span class="value"></span></label>
-          <input
-            type="range"
-            id="outline-opacity"
-            min="0"
-            max="1"
-            step=".01"
-          />
+          <label for="outline-opacity"
+            >Opacity: <span class="value"></span
+          ></label>
+          <input type="range" id="outline-opacity" min="0" max="1" step=".01" />
         </div>
       </fieldset>
 
-      <fieldset
-        id="text"
-        class="color-select"
-      >
+      <fieldset id="text" class="color-select">
         <legend>
-          <input
-            type="checkbox"
-            id="include-text"
-          />
+          <input type="checkbox" id="include-text" />
           <label for="include-text">Include Text Color</label>
         </legend>
         <div class="form-group">
           <label for="text-color">Color: <span class="value"></span></label>
-          <input
-            type="color"
-            id="text-color"
-          />
+          <input type="color" id="text-color" />
         </div>
         <div class="form-group">
           <label for="text-opacity">Opacity: <span class="value"></span></label>
-          <input
-            type="range"
-            id="text-opacity"
-            min="0"
-            max="1"
-            step=".01"
-          />
+          <input type="range" id="text-opacity" min="0" max="1" step=".01" />
         </div>
       </fieldset>
 
-      <fieldset
-        id="border"
-        class="color-select"
-      >
+      <fieldset id="border" class="color-select">
         <legend>
-          <input
-            type="checkbox"
-            id="include-border"
-          />
+          <input type="checkbox" id="include-border" />
           <label for="include-border">Include Border Color</label>
         </legend>
         <div class="form-group">
           <label for="border-color">Color: <span class="value"></span></label>
-          <input
-            type="color"
-            id="border-color"
-          />
+          <input type="color" id="border-color" />
         </div>
         <div class="form-group">
-          <label for="border-opacity">Opacity: <span class="value"></span></label>
-          <input
-            type="range"
-            id="border-opacity"
-            min="0"
-            max="1"
-            step=".01"
-          />
+          <label for="border-opacity"
+            >Opacity: <span class="value"></span
+          ></label>
+          <input type="range" id="border-opacity" min="0" max="1" step=".01" />
         </div>
       </fieldset>
 
-      <fieldset
-        id="image"
-        class="color-select"
-      >
+      <fieldset id="image" class="color-select">
         <legend>
-          <input
-            type="checkbox"
-            id="include-images"
-          />
+          <input type="checkbox" id="include-images" />
           <label for="include-images">Include Images</label>
         </legend>
         <div class="form-group">
-          <label for="image-opacity">Opacity: <span class="value"></span></label>
-          <input
-            type="range"
-            id="image-opacity"
-            min="0"
-            max="1"
-            step=".01"
-          />
+          <label for="image-opacity"
+            >Opacity: <span class="value"></span
+          ></label>
+          <input type="range" id="image-opacity" min="0" max="1" step=".01" />
         </div>
       </fieldset>
 
@@ -176,7 +108,9 @@
         <legend>Other Settings</legend>
 
         <div class="form-group">
-          <label for="root-selector">CSS selector for <code>&lt;root&gt;</code> element: </label>
+          <label for="root-selector"
+            >CSS selector for <code>&lt;root&gt;</code> element:
+          </label>
           <input
             type="text"
             id="root-selector"
@@ -188,7 +122,9 @@
         </div>
 
         <div class="form-group">
-          <label for="style-tag-id">ID of injected <code>&lt;style&gt;</code> element: </label>
+          <label for="style-tag-id"
+            >ID of injected <code>&lt;style&gt;</code> element:
+          </label>
           <input
             type="text"
             id="style-tag-id"
@@ -200,47 +136,36 @@
         </div>
 
         <div class="form-group">
-          <input
-            type="checkbox"
-            id="include-root"
-          />
-          <label for="include-root">Apply styles to <code>&lt;root&gt;</code> element</label>
+          <input type="checkbox" id="include-root" />
+          <label for="include-root"
+            >Apply styles to <code>&lt;root&gt;</code> element</label
+          >
         </div>
 
         <div class="form-group">
-          <input
-            type="checkbox"
-            id="include-descendants"
-          />
-          <label for="include-descendants">Apply styles to <code>&lt;root&gt; *</code> descendants</label>
+          <input type="checkbox" id="include-descendants" />
+          <label for="include-descendants"
+            >Apply styles to <code>&lt;root&gt; *</code> descendants</label
+          >
         </div>
 
         <div class="form-group">
-          <input
-            type="checkbox"
-            id="include-pseudo"
-          />
-          <label for="include-pseudo">Apply styles to <code>:before</code> and <code>:after</code></label>
+          <input type="checkbox" id="include-pseudo" />
+          <label for="include-pseudo"
+            >Apply styles to <code>:before</code> and <code>:after</code></label
+          >
         </div>
 
         <div class="form-group">
-          <input
-            type="checkbox"
-            id="use-important"
-          />
-          <label for="use-important">Apply styles with <code>!important</code></label>
+          <input type="checkbox" id="use-important" />
+          <label for="use-important"
+            >Apply styles with <code>!important</code></label
+          >
         </div>
-
       </fieldset>
 
-      <button
-        type="submit"
-        id="save"
-      >Save these settings</button>
-      <button
-        type="reset"
-        id="reset"
-      >Reset to defaults</button>
+      <button type="submit" id="save">Save these settings</button>
+      <button type="reset" id="reset">Reset to defaults</button>
     </form>
 
     <div id="demo">
@@ -262,9 +187,11 @@
       <article>
         <img src="http://placekitten.com/460/320" />
         <p>
-          Et quidem, inquit, vehementer errat; Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit?
+          Et quidem, inquit, vehementer errat; Cur tantas regiones barbarorum
+          pedibus obiit, tot maria transmisit?
           <a href="#">Beatus sibi videtur esse moriens.</a> Sed fortuna fortis;
-          Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.
+          Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam
+          philosophorum sit.
           <a href="#">Id enim natura desiderat.</a>
         </p>
       </article>
@@ -275,5 +202,4 @@
     <script src="js/inject.js"></script>
     <script src="js/options.js"></script>
   </body>
-
 </html>

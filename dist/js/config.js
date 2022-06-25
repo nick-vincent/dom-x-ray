@@ -43,5 +43,5 @@ var DEFAULTS = {
   "use-important": true,
 
   // Flag to save defaults to storage on first init
-  "first-init": true
+  "first-init": true,
 };

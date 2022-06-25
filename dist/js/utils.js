@@ -4,7 +4,7 @@ function saveOptions(newOptions, success, error) {
 
   // Try to save options
   if (chrome.storage) {
-    chrome.storage.local.set(newOptions, function() {
+    chrome.storage.local.set(newOptions, function () {
       console.log("Options saved.");
       if (success) success(newOptions);
     });
@@ -23,7 +23,7 @@ function loadOptions(success, error) {
 
   // Try to load saved options
   if (chrome.storage) {
-    chrome.storage.local.get(DEFAULTS, function(options) {
+    chrome.storage.local.get(DEFAULTS, function (options) {
       console.log("Options loaded.");
       if (success) success(options);
     });
@@ -120,7 +120,7 @@ function hexToRgb(hex) {
     ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        b: parseInt(result[3], 16),
       }
     : null;
 }
