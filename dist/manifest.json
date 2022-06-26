@@ -1,34 +1,29 @@
 {
-  "manifest_version": 2,
-  "version": "0.3.3",
+  "manifest_version": 3,
+  "version": "1.0.0",
   "name": "DOM X-Ray",
   "description": "See through the DOM to visually debug CSS positioning.",
+
+  "permissions": ["scripting", "storage", "webNavigation"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+
+  "options_page": "options.html",
+
+  "action": {
+    "default_icon": {
+      "16": "img/icon-off.png"
+    }
+  },
 
   "icons": {
     "16": "img/icon-16.png",
     "48": "img/icon-48.png",
     "128": "img/icon-128.png"
-  },
-
-  "permissions": ["tabs", "storage"],
-
-  "browser_action": {
-    "default_icon": "img/icon-off.png",
-    "default_title": "DOM X-Ray"
-  },
-
-  "background": {
-    "scripts": ["js/config.js", "js/utils.js", "js/background.js"]
-  },
-
-  "content_scripts": [
-    {
-      "js": ["js/config.js", "js/inject.js", "js/tab.js"],
-      "all_frames": true,
-      "matches": ["<all_urls>"],
-      "run_at": "document_start"
-    }
-  ],
-
-  "options_page": "options.html"
+  }
 }

@@ -1,188 +1,119 @@
-// Current options
-var options = {};
+import { injectStyles } from './styles.js';
+import { DEFAULTS, saveOptions, getOptions } from './config.js';
 
-// Generated CSS
-var xRayCss = "";
+const form = document.getElementById('options-form');
+const inputs = document.querySelectorAll('input');
+const status = document.getElementById('status');
+const statusDuration = 5000;
+const demoSelector = '#demo';
+const demoStyleTagId = 'dom-x-ray';
 
-// Demo ID
-var demoSelector = "#demo";
+let statusTimeout;
+let options = await getOptions();
 
-// Get elements
-var form = document.getElementById("options-form"),
-  inputs = form.getElementsByTagName("input"),
-  textInputs = form.querySelectorAll("input[type=text]"),
-  statusMsg = document.getElementById("status");
+bindEvents();
+loadForm(options);
 
-// Timeout for hiding status
-var statusTimeout = null;
-
-// Load the options & init
-loadOptions(init);
-
-// Initialize the options page
-function init(loadedOptions) {
-  console.log("Initializing DOM X-Ray options...");
-  options = loadedOptions;
-  updateInputs();
-  updateDemo();
-  addEventHandlers();
-  console.log("DOM X-Ray options Initialized!");
-}
-
-// Update the input values
-function updateInputs() {
-  console.log("Updating inputs...");
-  for (var i = 0; i < inputs.length; i++) {
-    var input = inputs[i];
-    setValue(input);
-    updateLabel(input);
+function loadForm(options) {
+  for (const id in options) {
+    setValue(id, options[id]);
   }
+  updateDemo();
 }
 
-// Update the demo styles
-function updateDemo() {
-  console.log("Updating demo...");
-
-  // clone options object so we can override root-selector for the demo
-  var demoOptions = JSON.parse(JSON.stringify(options));
-  demoOptions["root-selector"] = demoSelector;
-  xRayCss = generateCss(demoOptions);
-
-  injectStyles(demoOptions["style-tag-id"], xRayCss);
-}
-
-// Add the event handlers
-function addEventHandlers() {
-  console.log("Adding event handlers...");
-
-  // Input change handlers
-  for (var i = 0; i < inputs.length; i++) {
-    var input = inputs[i];
-    input.onchange = onInputChange;
-
-    // Add autoselect if it's a text input
-    if (input.type === "text") {
-      input.onfocus = onInputFocus;
-      input.onblur = onInputBlur;
-      input.onmouseup = function (e) {
-        e.preventDefault();
-      };
+function bindEvents() {
+  inputs.forEach((input) => {
+    input.addEventListener('change', onInputChange);
+    if (input.type === 'text') {
+      input.addEventListener('focus', onInputFocus);
+      input.addEventListener('blur', onInputBlur);
     }
-  }
-
-  // On form submit & reset
-  form.onsubmit = onSave;
-  form.onreset = onReset;
+  });
+  form.addEventListener('reset', onReset);
+  form.addEventListener('submit', onSubmit);
 }
 
-// When an input value changes
-function onInputChange() {
-  var input = this;
-  var key = input.id;
-  var value = getValue(input);
-  options[key] = value;
-  updateLabel(input);
+function onInputChange(e) {
+  const input = e.target;
+  const id = input.id;
+  const value = getValue(id);
+  options[id] = value;
+  updateInput(input);
   updateDemo();
 }
 
-// When an text input gets focus & blurs
-var focused = null;
-function onInputFocus() {
-  if (focused === this) return;
-  focused = this;
-  setTimeout(function () {
-    focused.select();
-  }, 50);
-}
-function onInputBlur() {
-  if (focused === this) focused = null;
-  this.value = this.value.trim();
+function onInputFocus(e) {
+  const input = e.target;
+  input.select();
 }
 
-// When the save button is clicked
-function onSave(e) {
+function onInputBlur(e) {
+  const input = e.target;
+  input.value = input.value.trim();
+}
+
+function setValue(id, val) {
+  const input = document.getElementById(id);
+  if (input.type === 'checkbox') {
+    input.checked = val;
+  } else {
+    input.value = val;
+  }
+  updateInput(input);
+}
+
+function getValue(id) {
+  const input = document.getElementById(id);
+  switch (input.type) {
+    case 'checkbox':
+      return input.checked;
+    case 'range':
+      return parseFloat(input.value);
+    default:
+      return input.value.trim();
+  }
+}
+
+function updateInput(input) {
+  const { id, type, value, checked } = input;
+  const isToggle = input.parentNode.nodeName === 'LEGEND';
+
+  if (['color', 'range'].includes(type)) {
+    const labelVal = document.querySelector(`label[for="${id}"] .value`);
+    labelVal.textContent =
+      type === 'range' ? `${parseInt(value * 100)}%` : value;
+  } else if (isToggle) {
+    const fieldset = input.closest('fieldset');
+    fieldset.classList.toggle('enabled', checked);
+  }
+}
+
+function onSubmit(e) {
   e.preventDefault();
-  saveOptions(
-    options,
-    function () {
-      updateStatus(MSG_SUCCESS, "success");
-    },
-    function () {
-      updateStatus(MSG_ERROR, "error");
-    }
-  );
+  saveOptions(options);
+  updateStatus('Your changes have been saved.');
 }
 
-// When the reset button is clicked
 function onReset(e) {
   e.preventDefault();
   options = JSON.parse(JSON.stringify(DEFAULTS));
-  updateInputs();
-  updateDemo();
-
-  saveOptions(
-    options,
-    function () {
-      updateStatus(MSG_RESET, "success");
-    },
-    function () {
-      updateStatus(MSG_ERROR, "error");
-    }
-  );
+  saveOptions(options);
+  loadForm(options);
+  updateStatus('Your settings have been reset to the defaults.');
 }
 
-// Display a status message
-function updateStatus(msg, state) {
-  statusMsg.textContent = msg;
-  statusMsg.classList.remove("hidden");
-  if (state) statusMsg.classList.add(state);
+function updateDemo() {
+  const demoOptions = JSON.parse(JSON.stringify(options));
+  demoOptions.rootSelector = demoSelector;
+  demoOptions.styleTagId = demoStyleTagId;
+  injectStyles(demoOptions);
+}
+
+function updateStatus(message) {
+  status.textContent = message;
+  status.classList.remove('hidden');
   clearTimeout(statusTimeout);
-  statusTimeout = setTimeout(function () {
-    statusMsg.classList.add("hidden");
-  }, MSG_TIMOUT);
+  statusTimeout = setTimeout(() => {
+    status.classList.add('hidden');
+  }, statusDuration);
 }
-
-// Input helper: set value
-function setValue(input) {
-  var key = input.id;
-  if (input.type === "checkbox") {
-    input.checked = options[key] ? true : false;
-  } else {
-    input.value = options[key];
-  }
-}
-
-// Input helper: get value
-function getValue(input) {
-  if (input.type === "checkbox") {
-    return input.checked ? true : false;
-  }
-  if (input.type === "range") {
-    return parseFloat(input.value);
-  }
-  if (input.id === "style-tag-id" && input.value.indexOf("#") === 0) {
-    console.log(input.value.split("#")[1].trim());
-    return input.value.split("#")[1].trim();
-  }
-  return input.value.trim();
-}
-
-// Update labels for color selector inputs
-function updateLabel(input) {
-  if (input.type === "color" || input.type === "range") {
-    var id = input.id;
-    var value = input.value;
-    var labelVal = document.querySelector("label[for=" + id + "] .value");
-    if (input.type === "range") value = parseInt(value * 100) + "%";
-    labelVal.textContent = value;
-  } else if (
-    input.type === "checkbox" &&
-    input.parentNode.nodeName.toLowerCase() === "legend"
-  ) {
-    var fieldset = input.parentNode.parentNode;
-    if (input.checked) fieldset.classList.add("enabled");
-    else fieldset.classList.remove("enabled");
-  }
-}
-
-// function isColorCheckbox

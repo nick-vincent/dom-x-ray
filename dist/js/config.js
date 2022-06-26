@@ -1,47 +1,42 @@
-// Extension events
-var XRAY_ON = "XRAY_ON",
-  XRAY_OFF = "XRAY_OFF",
-  UPDATE_ID = "UPDATE_ID";
+export const DEFAULTS = {
+  styleTagId: 'dom-x-ray',
+  rootSelector: 'html',
 
-// Icon paths
-var ICON_ON = "img/icon-on.png",
-  ICON_OFF = "img/icon-off.png";
+  includeBackground: true,
+  backgroundColor: '#70BBFF',
+  backgroundOpacity: 0.03,
 
-// Options alerts
-var MSG_SUCCESS = "Your changes have been saved.",
-  MSG_ERROR = "Oops, there was an error saving your changes.",
-  MSG_RESET = "Your settings have been reset to the defaults.",
-  MSG_TIMOUT = 5000;
+  includeOutline: true,
+  outlineColor: '#FF69B4',
+  outlineOpacity: 0.25,
 
-// Default values
-var DEFAULTS = {
-  "style-tag-id": "___dom-x-ray___",
-  "root-selector": "html",
+  includeText: true,
+  textColor: '#FF69B4',
+  textOpacity: 1.0,
 
-  "include-background": true,
-  "background-color": "#70BBFF",
-  "background-opacity": 0.03,
+  includeBorder: true,
+  borderColor: '#FF69B4',
+  borderOpacity: 1.0,
 
-  "include-outline": true,
-  "outline-color": "#FF69B4",
-  "outline-opacity": 0.25,
+  includeImages: true,
+  imageOpacity: 0.8,
 
-  "include-text": true,
-  "text-color": "#FF69B4",
-  "text-opacity": 1.0,
-
-  "include-border": true,
-  "border-color": "#FF69B4",
-  "border-opacity": 1.0,
-
-  "include-images": true,
-  "image-opacity": 0.8,
-
-  "include-root": true,
-  "include-descendants": true,
-  "include-pseudo": true,
-  "use-important": true,
-
-  // Flag to save defaults to storage on first init
-  "first-init": true,
+  includeRoot: true,
+  includeDescendants: true,
+  includePseudo: true,
+  useImportant: true,
 };
+
+export async function saveOptions(options) {
+  return new Promise((resolve) => {
+    chrome.storage.sync.set({ options }, resolve);
+  });
+}
+
+export async function getOptions() {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get('options', (results) => {
+      resolve(Object.keys(results).length > 0 ? results.options : DEFAULTS);
+    });
+  });
+}
