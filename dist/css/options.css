@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+
 *,
 *:before,
 *:after {
@@ -28,7 +30,7 @@ h2 {
 
 #options-form {
   position: fixed;
-  overflow: scroll;
+  overflow: auto;
   top: 0;
   bottom: 0;
   left: 0;
@@ -215,76 +217,4 @@ button:active {
 
 #status.hidden {
   transform: translateY(-100%);
-}
-
-/* Demo */
-#demo,
-#demo *,
-#demo *:before,
-#demo *:after {
-  outline: 1px solid transparent;
-}
-
-#demo {
-  position: fixed;
-  left: 420px;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  padding: 1em;
-  overflow: hidden;
-  text-align: center;
-  outline: 1px solid transparent;
-}
-
-#demo nav {
-  width: 33.3333%;
-  float: left;
-  font-size: 14px;
-  padding: 1em;
-}
-
-#demo article {
-  width: 66.6666%;
-  float: right;
-  padding: 1em;
-}
-
-#demo h2 {
-  border-bottom: 1px solid black;
-  margin-top: 0;
-}
-
-#demo p {
-  font-size: 12px;
-  margin-bottom: 0;
-}
-
-#demo ul {
-  display: block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#demo li {
-  position: relative;
-  border-bottom: 1px solid black;
-  line-height: 2;
-}
-
-#demo li:after {
-  content: '\203A';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20px;
-  height: 100%;
-}
-
-#demo img {
-  display: block;
-  border-radius: 2em;
-  width: 100%;
 }

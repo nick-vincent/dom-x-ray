@@ -1,0 +1,151 @@
+#demo,
+#demo *,
+#demo *:before,
+#demo *:after {
+  outline: 1px solid transparent;
+}
+
+#demo {
+  position: fixed;
+  left: 420px;
+  min-width: 480px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#demo header {
+  padding: 2rem;
+  background-color: #333;
+  border-bottom: 1px solid #999;
+}
+
+#demo nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+#demo nav li {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+#demo nav li:nth-child(n + 3)::before {
+  content: '|';
+  display: inline-block;
+  margin: 0 1rem;
+  color: #999;
+}
+
+#demo .home {
+  flex: 100%;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+#demo nav a {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#demo section {
+  display: grid;
+  padding: 2rem;
+}
+
+#demo .hero {
+  padding: 0;
+}
+
+#demo .hero .cell {
+  z-index: 2;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+}
+
+#demo .hero .text {
+  padding: 2rem;
+  box-shadow: inset 0 0 10rem rgba(0, 0, 0, 0.75);
+}
+
+#demo .hero img {
+  display: block;
+  width: 100%;
+  min-height: 400px;
+  object-fit: cover;
+}
+
+#demo .hero h1 {
+  margin: 0 0 1rem;
+  color: white;
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+#demo .hero button {
+  display: inline-block;
+  width: auto;
+  padding: 1.5rem 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #999;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+#demo .the-bit {
+  padding: 4rem 2rem;
+}
+
+#demo .the-bit p {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+#demo .three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  color: white;
+  background-color: #333;
+  font-size: 1.25rem;
+}
+
+#demo .three-columns h2 {
+  margin: 0;
+  font-weight: bold;
+}
+
+#demo .three-columns p {
+  margin: 0;
+}
+
+#demo .three-columns svg {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  fill: white;
+}
+
+#demo footer {
+  padding: 2rem;
+}
