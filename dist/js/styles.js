@@ -47,7 +47,7 @@ export function injectStyles(config) {
   document.getElementById(styleTagId)?.remove();
   const style = document.createElement('style');
   style.id = styleTagId;
-  document.head.appendChild(style);
+  document.body.appendChild(style);
   const sheet = style.sheet;
 
   // Build the selectors string
