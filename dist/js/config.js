@@ -18,6 +18,10 @@ export const DEFAULTS = {
   borderColor: '#FF69B4',
   borderOpacity: 1.0,
 
+  includeSvg: true,
+  svgColor: '#FF69B4',
+  svgOpacity: 1.0,
+
   includeImages: true,
   imageOpacity: 0.8,
 

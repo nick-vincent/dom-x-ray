@@ -21,6 +21,10 @@ export function injectStyles(config) {
     borderColor,
     borderOpacity,
 
+    includeSvg,
+    svgColor,
+    svgOpacity,
+
     includeImages,
     imageOpacity,
 
@@ -34,6 +38,7 @@ export function injectStyles(config) {
   const outlineRgba = hexToRgba(outlineColor, outlineOpacity);
   const textRgba = hexToRgba(textColor, textOpacity);
   const borderRgba = hexToRgba(borderColor, borderOpacity);
+  const svgRgba = hexToRgba(svgColor, svgOpacity);
   const imageOutlineOpacity = (outlineOpacity / imageOpacity).toFixed(2);
   const imageOutlineRgba = hexToRgba(outlineColor, imageOutlineOpacity);
   const important = useImportant ? ' !important' : '';
@@ -91,6 +96,16 @@ export function injectStyles(config) {
       styles += `outline: 1px solid ${imageOutlineRgba}${important};`;
     }
     sheet.insertRule(`${selector} { ${styles} }`);
+  }
+
+  // Add SVG
+  if (includeSvg) {
+    const fillSelector = `${rootSelector} [fill]:not([fill=""]):not([fill="none"])`;
+    const strokeSelector = `${rootSelector} [stroke]:not([stroke=""]):not([stroke="none"])`;
+    const fillRule = `${fillSelector} { fill: ${svgRgba}${important}; }`;
+    const strokeRule = `${strokeSelector} { stroke: ${svgRgba}${important}; }`;
+    sheet.insertRule(fillRule);
+    sheet.insertRule(strokeRule);
   }
 
   // Hex color + opacity to rgba() CSS value
