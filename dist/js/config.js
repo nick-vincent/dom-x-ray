@@ -23,7 +23,7 @@ export const DEFAULTS = {
   svgOpacity: 1.0,
 
   includeImages: true,
-  imageOpacity: 0.8,
+  imageOpacity: 0.5,
 
   includeRoot: true,
   includeDescendants: true,
